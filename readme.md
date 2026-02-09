@@ -46,4 +46,4 @@ Posteriormente se ubicaran imágnenes del proyecto.
 
 
 ### Creado por: 
-Aylin Esteban Luna - 240853
+Aylin Esteban Luna - 240853.
