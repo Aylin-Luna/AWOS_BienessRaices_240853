@@ -27,13 +27,13 @@ El proyecto estará basado en una Arquitectura SOA (Service Oriented Architectur
 |12.|Añadir imagenes a la propiedad (Gestion de archivos)|X|X|
 |13.|Elaboracion panel de administracion (Dashboard)|X|X|
 |14.|Formulario de edicion de propiedades|X|X|
-|15.|Formulario de eliminacion de propiedadesv
-|16.|Pagina de consulta de la propiedadv
+|15.|Formulario de eliminacion de propiedades|X|X|
+|16.|Pagina de consulta de la propiedad|X|X|
 |17.|Implementacion del paginador|X|X|
 |18.|Creando la pagina inicial (index)|X|X|
 |19.|Creando las paginas de categorias y paginas de error (404)|X|X|
 |20.|Envio de email por un formulario de contacto |X|X|
-|21.|Cambiar el estatus de una propiedad|X|X|
+|21.|Cambiar el estatus de una propiedad|X|X|n
 |22.|Barras de navegacion y cierre de sesion|X|X|
 |23.|Publicacion del APO y el Frontend|X|X|
 
