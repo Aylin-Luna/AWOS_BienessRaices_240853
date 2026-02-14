@@ -1,115 +1,100 @@
-import express from 'express'
-import { formularioLogin, formularioRegistro } from '../controllers/usuarioController.js';
+import express from "express";
 
-// Creamos el ruteador
 const router = express.Router();
-router.get("/login", formularioLogin)
-router.get("/registro", formularioRegistro)
 
-//Definimos las rutas
-// Ejemplo de un ENDPOINT GET
 router.get("/", (req, res) => {
-    console.log("Bienvenid@ al Sistema de Bienes Raices")
-    console.log("Procesando una petición del tipo GET");
+    console.log("Bienvenido al sistema de raices");
+    console.log("Procesando una peticion de tipo GET")
     res.json({
-        status:200, 
-        message: "Solicitud recibida a través del método GET"
-    })
-})
-
-// Ejemplo de un ENDPOINT POST
-router.post("/", (req,res) => {
-    console.log("Procesando una petición del tipo POST");
-    res.json({
-        status:400, 
-        message: "Lo sentimos, no se aceptan peticiones POST."
+        status: 200,
+        message: "Solicitud recibida a traves del metodo GET"
     })
 })
 
 
-// Ejemplo de un ENDPOINT POST  - Simular la creación de un nuevo usuario
-router.post("/createUser", (req,res)=>{
-    console.log("Procesando una petición del tipo POST");
-    console.log("Se ha solicitado crear un nuevo usuario.")
-    const nuevoUsuario = 
+
+router.get("/login", (req, res) => {
+    res.render('auth/login', {
+        autenticado: true
+    });
+});
+
+router.get("/saludo/:nombre", (req, res) => {
+    const { nombre } = req.params;
+    console.log(`El usuario: ${nombre}`)
+    res.status(200).send(`<p>Bienvenido <b>${nombre}</b></p> </h1>`)
+})
+
+export default router;
+
+router.post("/", (req, res) => {
+    console.log("Bienvenido al sistema de raices");
+    console.log("Procesando una peticion de tipo POST")
+    res.json({
+        status: 400,
+        message: "lo sentimos, no se puede aceptan peticiones POST"
+    })
+})
+
+router.post("/createUser", (req, res) => {
+    console.log("Se a solicitado una creacion de usuario");
+    const nuevoUsuario =
     {
-        nombre: "Marco A. Ramírez",
-        correo: "marco.rahe@gmail.com"
-    }
-    res.json({
-        status:200, 
-        message: `Se ha solicitado la creación de un usuario de nombre: ${nuevoUsuario.nombre} y correo: ${nuevoUsuario.correo}`
-    })
-})
-
-
-// Ejemplo de un ENDPOINT PUT - Simular la actualización de los datos de un usuario creado
-router.put("/updateUser", (req, res) =>
-{
-    console.log("Procesando una petición del tipo PUT");
-    console.log("Se ha solicitao la actualización de los datos del usuario, siendo PUT una actualización completa.")
-    const usuario = 
-    {
-        nombre: "Marco A. Ramírez",
-        correo: "marco.rahe@gmail.com"
+        nombre: "Aylin Eteban Luna",
+        correo: "aylinluna@gmail.com"
     }
 
-    const usuarioActualizado =
-    {
-        nombre: "Fernando Ojeda",
-        correo: "fer.ojeda@gmail.com"
+    res.json({
+        status: 200,
+        message: `Solicitud ha solicitado la creacion de un nuevo usuario con el nombre de ${nuevoUsuario.nombre} y el correo ${nuevoUsuario.correo} `
+
+    })
+})
+
+//Ejemplo de un ENDPOINT PUT 
+router.put("/updateUser", (req, res) => {
+    console.log("Se a solicitado la actualizacion de datos del usuario, tiempo PUT una actualizacion completa");
+    console.log("Procesando una peticion de tipo PUT")
+    const usuario = {
+        nombre: "Luis Angel Mejia Tecorralco",
+        correo: "angeltecorralco@gmail.com"
+    }
+    const usuarioActualizado = {
+        nombre: "Grissel Luna",
+        correo: "grisselluna@gmail.com"
     }
     res.json({
-        status:200, 
-        message: `Se ha solicitado la actualización completa de los datos del usuario de nombre: ${usuario.nombre} y correo: ${usuario.correo} a  
-        ${usuarioActualizado.nombre} y correo: ${usuarioActualizado.correo}`
+        status: 200,
+        message: `se a solicitado la actualizacion completa de los datos de usuario de nombre: ${usuario.nombre} y correo: ${usuario.correo}= ${usuarioActualizado.nombre} y correo: ${usuarioActualizado.correo}`
     })
-
 })
 
 
-// Ejemplo de un ENDPOINT  PATCH - Simular la actualización una contraseña del usuario
-router.patch("/updatePassword/:nuevoPassword", (req, res) =>
-{
-    console.log("Procesando una petición del tipo PATCH");
-    const usuario = 
-    {
-        nombre: "Marco A. Ramírez",
-        correo: "marco.rahe@gmail.com",
+//Ejemplo de un ENDPOINT PATCH
+router.patch("/updatePassword/:nuevoPassword", (req, res) => {
+    console.log("Se a solicitado la actualizacion de datos de la contraseña, siendo PATCH una actualizacion parcial");
+    console.log("Procesando una peticion de tipo PATCH")
+    const usuario = {
+        nombre: "Obed Vargas Luna",
+        correo: "obed@gmail.com",
         password: "abcde"
     }
-
-    const {nuevoPassword}= req.params
-
+    const nuevoPassword = req.params.nuevoPassword;
     res.json({
-        status:200, 
-        message: `Se ha solicitado la actualización parcial de la contraseña del usuario nombre: ${usuario.nombre} y correo: ${usuario.correo} del password: ${usuario.password} a  ${nuevoPassword}`
+        status: 200,
+        message: `se a solicitado la actualizacion parcail de la contraseña del usuario de nombre: ${usuario.nombre} y correo: ${usuario.correo} del password: ${usuario.password} = a ${nuevoPassword}`
     })
-
 })
 
-// Ejemplo de un ENDPOINT del tipo DELETE
-router.delete("/deleteProperty/:id", (req, res)=>
-    {
-        console.log("Procesando una petición del tipo DELETE");
-        const {id} = req.params;
+//Ejemplo de un ENDPOINT del tipo DELETE
 
-        res.json({
-            status:200, 
-            message: `Se realizará la eliminación de la propiedad: ${id}`
-        })
+router.delete("/deleteProperty/:id", (req, res) => {
 
+    console.log("Procesando una peticion de tipo DELETE");
+    const { id } = req.params;
 
+    res.json({
+        status: 200,
+        message: `se a solicitado la eliminacion de la propiedad con id: ${id}`
     })
-
-
-
-router.get("/saludo/:nombre", (req, res)=>
-    {
-        const {nombre} = req.params;
-        console.log(`El usuario: ${nombre}`)
-        res.status(200).send(`<p>Bienvenido <b>${nombre}</b></p> </h1`)       
-    })
-
-
-export default router
+})

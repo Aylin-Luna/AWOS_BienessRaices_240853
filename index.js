@@ -8,8 +8,9 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', './views')
 
-// Definimos la carpeta de los recursos estáticos
+//Definimos la carpeta publica
 app.use(express.static('public'))
+
 // Importamos sus rutas (ruteo)
 app.use("/auth",usuarioRoutes)
 
