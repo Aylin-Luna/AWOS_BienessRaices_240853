@@ -1,13 +1,13 @@
 {
   "name": "awos_bienessraices_240853",
   "version": "1.0.0",
-  "description": "Sistema de Bienes Raices - Proyecto de Clase",
+  "description": "Sistemas de Bienes Raices - Proyecto de clase",
   "keywords": [
-    "SOA",
+    "SQA",
     "MVC",
     "REST",
     "Tailwind",
-    "Sequelize",
+    "Squelize",
     "NodeJS"
   ],
   "homepage": "https://github.com/Aylin-Luna/AWOS_BienessRaices_240853#readme",
@@ -24,17 +24,19 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
-    "watch:css": "npx @tailwindcss/cli -i ./src/css/styles.css -o ./public/css/style.css --watch"
+    "watch:css": "npx @tailwindcss/cli -i ./src/css/styles.css -o ./public/css/styles.css --watch"
   },
   "dependencies": {
     "express": "^5.2.1",
-    "pug": "^3.0.3"
+    "mysql2": "^3.17.2",
+    "pug": "^3.0.3",
+    "sequelize": "^6.37.7"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.2.0",
-    "autoprefixer": "^10.4.24",
+    "dotenv": "^17.3.1",
+    "@tailwindcss/cli": "^4.1.18",
     "nodemon": "^3.1.11",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.2.0"
+    "tailwindcss": "^4.1.18"
   }
 }
