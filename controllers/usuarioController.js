@@ -1,4 +1,4 @@
-import Usuario from "../models/Usuario.js";
+import Usuario from "../models/usuario.js";
 
 const formularioLogin = (req, res) => {
     res.render('auth/login', { pagina: 'Iniciar Sesión' })
